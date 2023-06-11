@@ -6,7 +6,7 @@ spec:
   containers:
     - name: index-html
       data:
-        index.html:|
+        index.html:
         <html>
         
         <h1>Welcome</h1>
