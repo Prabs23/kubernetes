@@ -16,4 +16,10 @@ spec:
         </body>
         </html 
   
-# 2. Create a custom html page containerise it and run as a pod 
+# 2. Create a custom html page containerise it and run as a pod
+#     -kubectl create deployment <name the container> --image=nginx:
+#     -kubectl expose deployment <container-name> --type=NodePort --port=80
+#     Create deployment.yml file
+#     -kubectl apply -f deployment.yml
+#     Create index-html-configmap.yml
+#     -kubectl apply -f index-html-configmap.yml
