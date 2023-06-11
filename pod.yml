@@ -1,0 +1,12 @@
+apiversion: v1
+kind: pod
+metadata:
+  name: my_pod
+spec:
+  containers:
+    -name: podnginx_container
+    image: nginx
+      port:
+        -containerPort: 8080
+        protocol: TCP
+
