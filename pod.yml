@@ -10,3 +10,6 @@ spec:
         -containerPort: 8080
         protocol: TCP
 
+# 1. Write a yaml file to create a pod and check how to access nginx using localhost.
+#     kubectl apply -f pod.yml
+#     kubectl port-forward pod 8080:80
