@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: replica
+  template:
+    metadata:
+      labels:
+        app: replica
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.25.0
+          ports:
+            - containerPort: 80
+#1.Create a Deployment:
+# Deploy an application of your choice using a Deployment manifest.
+# Define the desired number of replicas and other necessary configurations.
+# Verify that the Deployment and its associated Pods are running successfully.
+  # --kubectl apply -f replicaset.yml
+  # --kubectl get deployments
+  # --kubectl get pods
+
+#2. Scale the Deployment:
+# Update the Deployment manifest to increase the number of replicas.
+  # -- change replica number,by adding 1 in yml file
+# Apply the updated manifest to scale up the application.
+  # -- kubectl apply -f deployment.yml
+# Verify that additional Pods are created and the application is effectively scaled.
+  # -- kubectl describe deployment deployment
+
+#3. Perform a Rolling Update:
+# Make a change to the application code or container image.
+# Update the Deployment with the new version.
+# Observe the rolling update process and ensure that the application is updated without downtime.
+  # -- kubectl apply -f deployment.yml
+  # -- kubectl rollout history deployment/deployment
+  # -- kubectl rollout undo deployment deployment --to-revision=1
+  # -- kubectl describe deployment deployment
+
+#4. Scale Down the Deployment:
+# Update the Deployment manifest to decrease the number of replicas.
+  # -- change replica number by reducing 1 in yml file
+# Apply the updated manifest to scale down the application.
+  # -- kubectl apply -f deployment.yml
+# Verify that excess Pods are terminated, and the application is scaled down accordingly.
+  # -- kubectl describe deployment deployment
+
+
+#5. Clean Up:
+# Delete the Deployment and associated resources ( Pods) once you have completed the testing.
+  # -- kubectl delete deployment <deployment-name>
+# Ensure that all resources are properly cleaned up to avoid unnecessary resource consumption.
+  # -- kubectl get deployment
+  # -- kubectl get pods
+
+
